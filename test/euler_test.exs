@@ -8,4 +8,8 @@ defmodule EulerTest do
   test "problem 2" do
     assert Euler.problem2 == 4613732
   end
+
+  test "problem 3" do
+    assert Euler.problem3 == 6857
+  end
 end

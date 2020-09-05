@@ -1,7 +1,22 @@
 defmodule Euler do
+  require Integer
+
   def problem1 do
     1..999
     |> Stream.filter(fn num -> rem(num, 3) == 0 || rem(num, 5) == 0 end)
     |> Enum.reduce(0, &+/2)
+  end
+
+  def problem2 do
+    fib()
+    |> Stream.take_while(fn value -> value < 4_000_000 end)
+    |> Stream.filter(&Integer.is_even/1)
+    |> Enum.reduce(0, &+/2)
+  end
+
+  defp fib do
+    Stream.unfold({0, 1}, fn ({current, next}) ->
+      {current, {next, current + next}}
+    end)
   end
 end

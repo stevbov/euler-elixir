@@ -34,7 +34,7 @@ defmodule Euler do
   end
 
   defp fib do
-    Stream.unfold({0, 1}, fn ({current, next}) ->
+    Stream.unfold({0, 1}, fn {current, next} ->
       {current, {next, current + next}}
     end)
   end
@@ -47,7 +47,8 @@ defmodule Euler do
   What is the largest prime factor of the number 600851475143?
   """
   def problem3 do
-    num = 600851475143
+    num = 600_851_475_143
+
     floor(:math.sqrt(num))..1
     |> Stream.filter(fn div -> rem(num, div) == 0 end)
     |> Stream.filter(&prime?/1)
@@ -56,6 +57,7 @@ defmodule Euler do
   end
 
   defp prime?(num) when num <= 1, do: false
+
   defp prime?(num) do
     1..floor(:math.sqrt(num))
     |> Stream.filter(fn div -> div != 1 && rem(num, div) == 0 end)
@@ -74,7 +76,7 @@ defmodule Euler do
     problem4_pairs()
     |> Stream.map(fn {x, y} -> x * y end)
     |> Stream.filter(&integer_palindrome?/1)
-    |> Enum.max
+    |> Enum.max()
   end
 
   def problem4_pairs do

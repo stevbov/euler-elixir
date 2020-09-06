@@ -35,4 +35,22 @@ defmodule Euler do
     |> Stream.filter(fn div -> div != 1 && rem(num, div) == 0 end)
     |> Enum.empty?()
   end
+
+  def problem4 do
+    problem4_pairs()
+    |> Stream.map(fn {x, y} -> x * y end)
+    |> Stream.filter(&integer_palindrome?/1)
+    |> Enum.max
+  end
+
+  def problem4_pairs do
+    for x <- 100..999, y <- x..999 do
+      {x, y}
+    end
+  end
+
+  def integer_palindrome?(int) do
+    digits = Integer.digits(int)
+    digits == Enum.reverse(digits)
+  end
 end

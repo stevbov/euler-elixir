@@ -33,4 +33,9 @@ defmodule EulerTest do
       assert Euler.integer_palindrome?(num) == expected
     end)
   end
+
+  test "problem 5" do
+    assert Euler.problem5(10) == 2520
+    assert Euler.problem5(20) == 232_792_560
+  end
 end

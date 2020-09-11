@@ -230,4 +230,19 @@ defmodule Euler do
     end
     |> hd()
   end
+
+
+  @doc """
+  https://projecteuler.net/problem=10
+
+  The sum of the primes below 10 is 2 + 3 + 5 + 7 = 17.
+
+  Find the sum of all the primes below two million.
+
+  """
+  def problem10(below) do
+    primes()
+    |> Stream.take_while(fn n -> n < below end)
+    |> Enum.reduce(0, &+/2)
+  end
 end

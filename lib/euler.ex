@@ -151,4 +151,22 @@ defmodule Euler do
     sum = upto * (upto + 1) / 2
     sum * sum
   end
+
+  @doc """
+  https://projecteuler.net/problem=7
+
+  By listing the first six prime numbers: 2, 3, 5, 7, 11, and 13, we can see
+  that the 6th prime is 13.
+
+  What is the 10,001st prime number?
+  """
+  def problem7(n) do
+    primes()
+    |> Enum.fetch!(n - 1)
+  end
+
+  def primes() do
+    Stream.iterate(2, &(&1 + 1))
+    |> Stream.filter(&prime?/1)
+  end
 end

@@ -43,4 +43,9 @@ defmodule EulerTest do
     assert Euler.problem6(10) == 2640
     assert Euler.problem6(100) == 25_164_150
   end
+
+  test "problem 7" do
+    assert Euler.problem7(6) == 13
+    assert Euler.problem7(10001) == 104_743
+  end
 end

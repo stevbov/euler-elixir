@@ -207,4 +207,27 @@ defmodule Euler do
     |> Stream.map(fn nums -> Enum.reduce(nums, 1, &*/2) end)
     |> Enum.max()
   end
+
+  @doc """
+  https://projecteuler.net/problem=9
+
+  A Pythagorean triplet is a set of three natural numbers, a < b < c, for which,
+    a^2 + b^2 = c^2
+
+  For example, 3^2 + 4^2 = 9 + 16 = 25 = 52.
+
+  There exists exactly one Pythagorean triplet for which a + b + c = 1000.
+  Find the product abc.
+  """
+  def problem9() do
+    n = 1000
+    for c <- n..3,
+        b <- (c - 1)..2,
+        a <- (b - 1)..1,
+        a + b + c == n,
+        a * a + b * b ==  c * c do
+      a * b * c
+    end
+    |> hd()
+  end
 end

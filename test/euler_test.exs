@@ -54,4 +54,8 @@ defmodule EulerTest do
     assert Euler.problem8(@problem_8_number, 4) == 5832
     assert Euler.problem8(@problem_8_number, 13) == 23_514_624_000
   end
+
+  test "problem 9" do
+    assert Euler.problem9() == 31_875_000
+  end
 end

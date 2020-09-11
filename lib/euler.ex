@@ -120,4 +120,35 @@ defmodule Euler do
   defp dividable_by_all?(n, nums) do
     Enum.all?(nums, &(rem(n, &1) == 0))
   end
+
+  @doc """
+  https://projecteuler.net/problem=6
+
+  The sum of the squares of the first ten natural numbers is,
+    1^2 + 2^2 + ... + 10^2 = 385
+
+  The square of the sum of the first ten natural numbers is,
+    (1 + 2 + ... + 10)^2 = 55^2 = 3025
+
+  Hence the difference between the sum of the squares of the first ten natural
+  numbers and the square of the sum is
+    3025 - 385 = 2640
+
+  Find the difference between the sum of the squares of the first one hundred
+  natural numbers and the square of the sum.
+  """
+  def problem6(upto) do
+    problem6_squared_sum(upto) - problem6_sum_squares(upto)
+  end
+
+  defp problem6_sum_squares(upto) do
+    1..upto
+    |> Stream.map(fn n -> n * n end)
+    |> Enum.reduce(0, &+/2)
+  end
+
+  defp problem6_squared_sum(upto) do
+    sum = upto * (upto + 1) / 2
+    sum * sum
+  end
 end

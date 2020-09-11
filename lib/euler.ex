@@ -200,10 +200,10 @@ defmodule Euler do
   Find the thirteen adjacent digits in the 1000-digit number that have the
   greatest product. What is the value of this product?
   """
-  def problem8(n, num_adjacent) do
+  def problem8(n, adjacent_count) do
     n
     |> Integer.digits()
-    |> Stream.chunk_every(num_adjacent, 1)
+    |> Stream.chunk_every(adjacent_count, 1)
     |> Stream.map(fn nums -> Enum.reduce(nums, 1, &*/2) end)
     |> Enum.max()
   end

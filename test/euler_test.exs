@@ -60,6 +60,6 @@ defmodule EulerTest do
   end
 
   test "problem 10" do
-    assert Euler.problem10(2_000_000) == 142913828922
+    assert Euler.problem10(2_000_000) == 142_913_828_922
   end
 end

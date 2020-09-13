@@ -5,8 +5,8 @@ defmodule Euler.Problem do
 
 
   @doc """
-  Ensures problems are loaded.  Depending upon how you run the program, this
-  might have to be called ahead of time.
+  Ensures problems are loaded.  This has to be called once to ensure this module
+  will be able to find all the problems.
   """
   def ensure_problems_loaded() do
     :code.all_available()

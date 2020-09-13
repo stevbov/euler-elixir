@@ -8,7 +8,8 @@ defmodule Euler.Problem010 do
   """
   @behaviour Euler.Problem
 
-  def name(), do: "Special Pythagorean triplet"
+  def name(), do: "Summation of primes"
+
   def description(), do: @moduledoc
 
   def solve() do

@@ -47,4 +47,4 @@ defmodule Euler.Problem008 do
     |> Stream.map(fn nums -> Enum.reduce(nums, 1, &*/2) end)
     |> Enum.max()
   end
- end
+end

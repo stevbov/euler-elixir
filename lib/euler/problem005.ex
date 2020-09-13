@@ -38,4 +38,4 @@ defmodule Euler.Problem005 do
   defp dividable_by_all?(n, nums) do
     Enum.all?(nums, &(rem(n, &1) == 0))
   end
- end
+end

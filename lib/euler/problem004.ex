@@ -29,4 +29,4 @@ defmodule Euler.Problem004 do
     digits = Integer.digits(int)
     digits == Enum.reverse(digits)
   end
- end
+end

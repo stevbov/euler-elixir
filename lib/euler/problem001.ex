@@ -18,4 +18,4 @@ defmodule Euler.Problem001 do
     |> Stream.filter(fn num -> rem(num, 3) == 0 || rem(num, 5) == 0 end)
     |> Enum.reduce(0, &+/2)
   end
- end
+end

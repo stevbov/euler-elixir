@@ -20,4 +20,4 @@ defmodule Euler.Problem010 do
     |> Stream.take_while(fn n -> n < below end)
     |> Enum.reduce(0, &+/2)
   end
- end
+end

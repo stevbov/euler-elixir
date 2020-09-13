@@ -27,4 +27,4 @@ defmodule Euler.Problem009 do
     end
     |> hd()
   end
- end
+end

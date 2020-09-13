@@ -21,4 +21,4 @@ defmodule Euler.Problem003 do
     |> Enum.take(1)
     |> Enum.fetch!(0)
   end
- end
+end

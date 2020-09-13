@@ -6,6 +6,7 @@ defmodule Euler do
   end
 
   def prime?(num) when num <= 1, do: false
+
   def prime?(num) do
     1..floor(:math.sqrt(num))
     |> Stream.filter(fn div -> div != 1 && rem(num, div) == 0 end)

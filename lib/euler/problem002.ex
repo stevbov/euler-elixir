@@ -23,4 +23,4 @@ defmodule Euler.Problem002 do
     |> Stream.filter(&Integer.is_even/1)
     |> Enum.reduce(0, &+/2)
   end
- end
+end

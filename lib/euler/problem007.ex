@@ -20,4 +20,4 @@ defmodule Euler.Problem007 do
     Euler.primes()
     |> Enum.fetch!(n - 1)
   end
- end
+end

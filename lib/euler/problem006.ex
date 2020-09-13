@@ -38,5 +38,4 @@ defmodule Euler.Problem006 do
     sum = upto * (upto + 1) / 2
     sum * sum
   end
-
- end
+end

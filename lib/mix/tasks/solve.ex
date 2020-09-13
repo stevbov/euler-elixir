@@ -5,36 +5,29 @@ defmodule Mix.Tasks.Solve do
     IO.puts("Usage: mix solve <problem #> [problem #] [problem #] ...")
   end
 
-  def run(args) do
-    args
-    |> Enum.map(&find_module/1)
+  def run(["all"]) do
+    Euler.Problem.all_problems()
     |> Enum.each(&solve/1)
   end
 
-  defp find_module(problem_number) do
-    module = String.to_atom("Elixir.Euler.Problem#{String.pad_leading(problem_number, 3, "0")}")
-
-    cond do
-      !match?({_, ""}, Integer.parse(problem_number)) ->
-        {:error, "#{problem_number} is not a number"}
-
-      match?({:error, _}, Code.ensure_loaded(module)) ->
-        {:error, "No solution for problem ##{problem_number}"}
-
-      !Enum.member?(module.module_info(:attributes), {:behaviour, [Euler.Problem]}) ->
-        {:error, "No solution for problem ##{problem_number}"}
-
-      true ->
-        {:ok, problem_number, module}
-    end
+  def run(args) do
+    args
+    |> Enum.map(&Euler.Problem.to_module/1)
+    |> Enum.each(&solve/1)
   end
 
   defp solve({:error, message}) do
     IO.puts(message)
   end
 
-  defp solve({:ok, problem_number, module}) do
+  defp solve({:ok, module}) do
+    solve(module)
+  end
+
+  defp solve(module) do
+    problem_number = Euler.Problem.to_problem_number(module)
     name = module.name()
+
     IO.puts("Solving problem #{problem_number} - #{name}")
 
     {microseconds, answer} = :timer.tc(module, :solve, [])
@@ -47,5 +40,6 @@ defmodule Mix.Tasks.Solve do
       end
 
     IO.puts("  #{answer} (in #{solve_time})")
+
   end
 end

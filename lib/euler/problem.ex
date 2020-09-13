@@ -3,7 +3,6 @@ defmodule Euler.Problem do
   @callback description() :: String.t()
   @callback solve() :: term
 
-
   @doc """
   Gets all problems
   """
@@ -11,13 +10,15 @@ defmodule Euler.Problem do
     :code.all_available()
     |> Enum.map(fn {module_name, _, _} -> module_name end)
     |> Enum.map(&to_string/1)
-    |> Enum.filter(& String.starts_with?(&1, "Elixir.Euler.Problem"))
+    |> Enum.filter(&String.starts_with?(&1, "Elixir.Euler.Problem"))
     |> Enum.map(&String.to_atom/1)
     # need to make sure the code is actually loaded - it won't always be
     |> Enum.map(&Code.ensure_loaded/1)
     |> Enum.map(fn {:module, module} -> module end)
     # make sure the module implements the Euler.Problem behavior
-    |> Enum.filter(fn module -> Enum.member?(module.module_info(:attributes), {:behaviour, [Euler.Problem]}) end)
+    |> Enum.filter(fn module ->
+      Enum.member?(module.module_info(:attributes), {:behaviour, [Euler.Problem]})
+    end)
     |> Enum.sort()
   end
 

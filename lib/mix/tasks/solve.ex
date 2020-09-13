@@ -40,6 +40,5 @@ defmodule Mix.Tasks.Solve do
       end
 
     IO.puts("  #{answer} (in #{solve_time})")
-
   end
 end

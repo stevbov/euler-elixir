@@ -6,14 +6,14 @@ defmodule Mix.Tasks.Solve do
   end
 
   def run(["all"]) do
-    ensure_problems_loaded()
+    Euler.Problem.ensure_problems_loaded()
 
     Euler.Problem.all_problems()
     |> Enum.each(&solve/1)
   end
 
   def run(args) do
-    ensure_problems_loaded()
+    Euler.Problem.ensure_problems_loaded()
     args
     |> Enum.map(&Euler.Problem.to_module/1)
     |> Enum.each(&solve/1)
@@ -43,14 +43,5 @@ defmodule Mix.Tasks.Solve do
       end
 
     IO.puts("  #{answer} (in #{solve_time})")
-  end
-
-  defp ensure_problems_loaded() do
-    :code.all_available()
-    |> Enum.map(fn {module_name, _, _} -> module_name end)
-    |> Enum.map(&to_string/1)
-    |> Enum.filter(&String.starts_with?(&1, "Elixir.Euler.Problem"))
-    |> Enum.map(&String.to_atom/1)
-    |> Enum.each(&Code.ensure_loaded/1)
   end
 end

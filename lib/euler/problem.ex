@@ -3,6 +3,20 @@ defmodule Euler.Problem do
   @callback description() :: String.t()
   @callback solve() :: term
 
+
+  @doc """
+  Ensures problems are loaded.  Depending upon how you run the program, this
+  might have to be called ahead of time.
+  """
+  def ensure_problems_loaded() do
+    :code.all_available()
+    |> Enum.map(fn {module_name, _, _} -> module_name end)
+    |> Enum.map(&to_string/1)
+    |> Enum.filter(&String.starts_with?(&1, "Elixir.Euler.Problem"))
+    |> Enum.map(&String.to_atom/1)
+    |> Enum.each(&Code.ensure_loaded/1)
+  end
+
   @doc """
   Gets all problems
   """

@@ -2,19 +2,19 @@ defmodule EulerTest do
   use ExUnit.Case
 
   test "problem 1" do
-    assert Euler.problem1() == 233_168
+    assert Euler.Problem001.solve() == 233_168
   end
 
   test "problem 2" do
-    assert Euler.problem2() == 4_613_732
+    assert Euler.Problem002.solve() == 4_613_732
   end
 
   test "problem 3" do
-    assert Euler.problem3() == 6857
+    assert Euler.Problem003.solve() == 6857
   end
 
   test "problem 4" do
-    assert Euler.problem4() == 906_609
+    assert Euler.Problem004.solve() == 906_609
   end
 
   test "integer palindrome" do
@@ -30,36 +30,36 @@ defmodule EulerTest do
     }
 
     Enum.each(tests, fn {num, expected} ->
-      assert Euler.integer_palindrome?(num) == expected
+      assert Euler.Problem004.integer_palindrome?(num) == expected
     end)
   end
 
   test "problem 5" do
-    assert Euler.problem5(10) == 2520
-    assert Euler.problem5(20) == 232_792_560
+    assert Euler.Problem005.solve(10) == 2520
+    assert Euler.Problem005.solve() == 232_792_560
   end
 
   test "problem 6" do
-    assert Euler.problem6(10) == 2640
-    assert Euler.problem6(100) == 25_164_150
+    assert Euler.Problem006.solve(10) == 2640
+    assert Euler.Problem006.solve() == 25_164_150
   end
 
   test "problem 7" do
-    assert Euler.problem7(6) == 13
-    assert Euler.problem7(10001) == 104_743
+    assert Euler.Problem007.solve(6) == 13
+    assert Euler.Problem007.solve() == 104_743
   end
 
-  @problem_8_number 7_316_717_653_133_062_491_922_511_967_442_657_474_235_534_919_493_496_983_520_312_774_506_326_239_578_318_016_984_801_869_478_851_843_858_615_607_891_129_494_954_595_017_379_583_319_528_532_088_055_111_254_069_874_715_852_386_305_071_569_329_096_329_522_744_304_355_766_896_648_950_445_244_523_161_731_856_403_098_711_121_722_383_113_622_298_934_233_803_081_353_362_766_142_828_064_444_866_452_387_493_035_890_729_629_049_156_044_077_239_071_381_051_585_930_796_086_670_172_427_121_883_998_797_908_792_274_921_901_699_720_888_093_776_657_273_330_010_533_678_812_202_354_218_097_512_545_405_947_522_435_258_490_771_167_055_601_360_483_958_644_670_632_441_572_215_539_753_697_817_977_846_174_064_955_149_290_862_569_321_978_468_622_482_839_722_413_756_570_560_574_902_614_079_729_686_524_145_351_004_748_216_637_048_440_319_989_000_889_524_345_065_854_122_758_866_688_116_427_171_479_924_442_928_230_863_465_674_813_919_123_162_824_586_178_664_583_591_245_665_294_765_456_828_489_128_831_426_076_900_422_421_902_267_105_562_632_111_110_937_054_421_750_694_165_896_040_807_198_403_850_962_455_444_362_981_230_987_879_927_244_284_909_188_845_801_561_660_979_191_338_754_992_005_240_636_899_125_607_176_060_588_611_646_710_940_507_754_100_225_698_315_520_005_593_572_972_571_636_269_561_882_670_428_252_483_600_823_257_530_420_752_963_450
   test "problem 8" do
-    assert Euler.problem8(@problem_8_number, 4) == 5832
-    assert Euler.problem8(@problem_8_number, 13) == 23_514_624_000
+    assert Euler.Problem008.solve(4) == 5832
+    assert Euler.Problem008.solve() == 23_514_624_000
   end
 
   test "problem 9" do
-    assert Euler.problem9() == 31_875_000
+    assert Euler.Problem009.solve() == 31_875_000
   end
 
   test "problem 10" do
-    assert Euler.problem10(2_000_000) == 142_913_828_922
+    assert Euler.Problem010.solve(10) == 17
+    assert Euler.Problem010.solve() == 142_913_828_922
   end
 end

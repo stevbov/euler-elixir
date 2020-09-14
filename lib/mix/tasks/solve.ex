@@ -6,14 +6,11 @@ defmodule Mix.Tasks.Solve do
   end
 
   def run(["all"]) do
-    Euler.Problem.ensure_problems_loaded()
-
     Euler.Problem.all_problems()
     |> Enum.each(&solve/1)
   end
 
   def run(args) do
-    Euler.Problem.ensure_problems_loaded()
     args
     |> Enum.map(&Euler.Problem.to_module/1)
     |> Enum.each(&solve/1)

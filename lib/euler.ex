@@ -17,4 +17,18 @@ defmodule Euler do
     Stream.iterate(2, &(&1 + 1))
     |> Stream.filter(&prime?/1)
   end
+
+  def triangular_numbers() do
+    Stream.unfold({1, 2}, fn {current, n} ->
+      {current, {current + n, n + 1}}
+    end)
+  end
+
+  def divisors(1), do: [1]
+  def divisors(number) do
+    1..ceil(number/2)
+    |> Stream.filter(fn div -> rem(number, div) == 0 end)
+    |> Enum.to_list()
+    |> List.insert_at(0, number)
+  end
 end

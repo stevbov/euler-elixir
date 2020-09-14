@@ -62,4 +62,12 @@ defmodule EulerTest do
     assert Euler.Problem010.solve(10) == 17
     assert Euler.Problem010.solve() == 142_913_828_922
   end
+
+  test "tringular numbers" do
+    assert Euler.triangular_numbers() |> Enum.take(5) == [1, 3, 6, 10, 15]
+  end
+
+  test "problem 12" do
+    assert Euler.Problem012.solve(5) == 28
+  end
 end
